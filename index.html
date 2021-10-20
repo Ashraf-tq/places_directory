@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta name="viewport" content="initial-scale=1,maximum-scale=1">
+        <link href="https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.css" rel="stylesheet">
+        <link rel="stylesheet" href="./css/bootstrap.css">
+        <script src='https://api.mapbox.com/mapbox-gl-js/v2.5.1/mapbox-gl.js'></script>
+        <style>
+            body{background-color: #0d0d0d;}
+        </style>
+        <script src="./js/main.js"></script>
+        <script src="./js/bootstrap.js"></script>
+    </head>
+
+    <body onload="on_load()">
+  
+            <nav class="navbar navbar-expand-lg navbar-light bg-light" style="height: 43px;">
+                <div class="container-fluid">
+                  <a class="navbar-brand" href="#"><h4 class="mb-0">Places directory</h4></a><br>
+                  <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="true" aria-label="Toggle navigation"></button>
+                  <div class="collapse navbar-collapse">
+                    
+                  </div>
+                </div>
+            </nav>
+            
+            <div class="container px-5 mt-3">
+
+                <p class="text-center text-light fs-5"><i>Brief inormation about amazing places around the world. Discover now!</i></p>
+                <div class="container text-center mb-2">
+                    <div class=" row row-cols-2 row-cols-lg-6" >
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio1" autocomplete="off" onclick="all_map()" checked> 
+                      <label class="btn btn-outline-secondary rounded-0 rounded-start pt-1" for="btnradio1">All</label>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio2" autocomplete="off" onclick="asia_map()">
+                      <label class="btn btn-outline-secondary rounded-0 pt-1" for="btnradio2" >Asia</label>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio3" autocomplete="off" onclick="africa_map()">
+                      <label class="btn btn-outline-secondary rounded-0 pt-1" for="btnradio3" >Africa</label>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio4" autocomplete="off" onclick="europe_map()">
+                      <label class="btn btn-outline-secondary rounded-0 pt-1" for="btnradio4" >Europe</label>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio5" autocomplete="off" onclick="na_map()">
+                      <label class="btn btn-outline-secondary rounded-0 pt-1" for="btnradio5" >North America</label>
+                      <input type="radio" class="btn-check" name="btnradio" id="btnradio6" autocomplete="off" onclick="la_map()">
+                      <label class="btn btn-outline-secondary rounded-0 rounded-end pt-1" for="btnradio6" >Latin America</label>              
+                    </div>
+                </div>
+                
+                  <div id='map' class="container border border-2 rounded-2" style='width: 98%; height: 75vh;'></div>
+            
+                <!-- Icons of map locations -->
+                <img src="images/placeholder.png" id="bali"   data-bs-toggle="modal" data-bs-target="#Modal1" style="width: 40px;">
+                <img src="images/placeholder.png" id="marrakesh"   data-bs-toggle="modal" data-bs-target="#Modal2" style="width: 40px;">
+                <img src="images/placeholder.png" id="maldives"   data-bs-toggle="modal" data-bs-target="#Modal3" style="width: 40px;">
+                <img src="images/placeholder.png" id="cape-town"   data-bs-toggle="modal" data-bs-target="#Modal4" style="width: 40px;">
+                <img src="images/placeholder.png" id="london"   data-bs-toggle="modal" data-bs-target="#Modal5" style="width: 40px;">
+                <img src="images/placeholder.png" id="lisbon"   data-bs-toggle="modal" data-bs-target="#Modal6" style="width: 40px;">
+                <img src="images/placeholder.png" id="buenos-aires"   data-bs-toggle="modal" data-bs-target="#Modal7" style="width: 40px;">
+                <img src="images/placeholder.png" id="new-orleans"   data-bs-toggle="modal" data-bs-target="#Modal8" style="width: 40px;">
+                <img src="images/placeholder.png" id="hanoi"   data-bs-toggle="modal" data-bs-target="#Modal9" style="width: 40px;">
+                <img src="images/placeholder.png" id="havana"   data-bs-toggle="modal" data-bs-target="#Modal10" style="width: 40px;">
+                <img src="images/placeholder.png" id="beijing"   data-bs-toggle="modal" data-bs-target="#Modal11" style="width: 40px;">  
+              
+                <!-- Modals container -->
+                <div id="modal_container"></div>
+
+            </div>
+                 
+            <!-- 
+                Code of the map API (Mapbox) are added here rather 
+                than external JS file because it can't be run this way 
+            -->
+            <script>
+                mapboxgl.accessToken = 'pk.eyJ1Ijoic2VjYy0yIiwiYSI6ImNrdXd3bTFxaDBrNzMyb21ycmhsejRwdzAifQ.Yzn-2ddWqhrC7n72Pkz2kw';
+            const map = new mapboxgl.Map({
+                container: 'map',
+                style: 'mapbox://styles/secc-2/ckuz74k3a0jyo14o54jmm9mro',
+                center: [-4.286804837279021, 22.12091246269418],
+                zoom: 0.90,
+            });
+
+            map.addControl(new mapboxgl.FullscreenControl())
+            const nav = new mapboxgl.NavigationControl();
+            map.addControl(nav, 'top-left');
+
+            // Create a default Marker and add it to the map.
+            const marker1 = new mapboxgl.Marker({ element : document.getElementById("bali")})
+            .setLngLat([115.10298294326407, -8.353165315087352])
+            .addTo(map);
+            const marker2 = new mapboxgl.Marker({ element : document.getElementById("marrakesh")})
+            .setLngLat([-7.995302227765563, 31.627181559129056])
+            .addTo(map);
+            const marker3 = new mapboxgl.Marker({ element : document.getElementById("maldives")})
+            .setLngLat([73.18727540380266, 3.2920429549394328])
+            .addTo(map);
+            const marker4 = new mapboxgl.Marker({ element : document.getElementById("cape-town")})
+            .setLngLat([18.4125756196147, -33.95116310651104])
+            .addTo(map);
+            const marker5 = new mapboxgl.Marker({ element : document.getElementById("london")})
+            .setLngLat([-0.1291844262462, 51.512763964443536])
+            .addTo(map);
+            const marker6 = new mapboxgl.Marker({ element : document.getElementById("lisbon")})
+            .setLngLat([-9.170617095708423, 38.73689989828307])
+            .addTo(map);
+            const marker7 = new mapboxgl.Marker({ element : document.getElementById("buenos-aires")})
+            .setLngLat([-58.45109719425497, -34.5893309552311])
+            .addTo(map);
+            const marker8 = new mapboxgl.Marker({ element : document.getElementById("new-orleans")})
+            .setLngLat([-90.10781956323123, 29.984416537768865])
+            .addTo(map);
+
+            const marker9 = new mapboxgl.Marker({ element : document.getElementById("hanoi")})
+            .setLngLat([105.83823967118201, 21.05966547612067])
+            .addTo(map);
+
+            const marker10 = new mapboxgl.Marker({ element : document.getElementById("havana")})
+            .setLngLat([-82.37570707601573, 23.124649314849833])
+            .addTo(map);
+
+            const marker11 = new mapboxgl.Marker({ element : document.getElementById("beijing")})
+            .setLngLat([116.32439961798485, 40.0273896010481])
+            .addTo(map);
+             
+            map.on('load', () => {
+            // Add a GeoJSON source with 3 points.
+            map.addSource('points', {
+            'type': 'geojson',
+            'data': {
+            'type': 'FeatureCollection',
+            'features': [
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [115.10298294326407, -8.353165315087352]
+            }
+            },
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [-7.995302227765563, 31.627181559129056]
+            }
+            },
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [73.18727540380266, 3.2920429549394328]
+            }
+            },
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [18.4125756196147, -33.95116310651104]
+            }
+            },
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [-0.1291844262462, 51.512763964443536]
+            }
+            },
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [-9.170617095708423, 38.73689989828307]
+            }
+            },
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [-58.45109719425497, -34.5893309552311]
+            }
+            },
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [-90.10781956323123, 29.984416537768865]
+            }
+            },
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [105.83823967118201, 21.05966547612067]
+            }
+            },
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [-82.37570707601573, 23.124649314849833]
+            }
+            },
+            {
+            'type': 'Feature',
+            'properties': {},
+            'geometry': {
+            'type': 'Point',
+            'coordinates': [116.32439961798485, 40.0273896010481]
+            }
+            },
+            ]
+            }
+            });
+
+            // Add a circle layer
+            map.addLayer({
+            'id': 'circle',
+            'type': 'circle',
+            'source': 'points',
+            'paint': {
+            'circle-color': 'rgba(76, 175, 80, 0)',
+            'circle-radius': 20,
+            'circle-stroke-width': 2,
+            'circle-stroke-color': 'rgba(76, 175, 80, 0)'
+            }
+            });
+             
+            // Center the map on the coordinates of any clicked circle from the 'circle' layer.
+            map.on('click', 'circle', (e) => {
+            map.flyTo({
+            center: e.features[0].geometry.coordinates,
+            zoom: 8,
+            });
+            });
+            map.on('click', (e) =>{console.log(`${e.lngLat}`)})
+            });
+
+            function all_map(){map.flyTo({center: [-4.286804837279021, 22.12091246269418], bearing: 0, zoom: 0.90});}
+            function asia_map(){map.flyTo({center: [96.7767367366335, 29.690123379853233], bearing: 20, zoom: 2});}
+            function africa_map(){map.flyTo({center: [10.892463586575019, -0.9575638751470592], bearing: 0, zoom: 2});}
+            function europe_map(){map.flyTo({center: [14.092874166155099, 50.432668845853186], bearing: -40, zoom: 3});}
+            function na_map(){map.flyTo({center: [-95.53544421369661, 38.59916965006485], bearing: 40, zoom: 2.5});}
+            function la_map(){map.flyTo({center: [-65.77832369761055, -13.076687520828173], bearing: 90, zoom: 2.5});}
+            </script>
+
+        <script src="./js/main.js"></script>
+    </body>
+</html>
