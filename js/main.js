@@ -351,7 +351,7 @@ function on_load(){
             <div id="carousel9" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img src="./images/hanoi.png" class="d-block w-100" alt="...">
+                    <img src="./images/hanoi1.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
                     <img src="./images/hanoi2.png" class="d-block w-100" alt="...">
@@ -392,13 +392,13 @@ function on_load(){
             <div id="carousel10" class="carousel slide carousel-fade" data-bs-ride="carousel">
                 <div class="carousel-inner">
                     <div class="carousel-item active">
-                    <img src="./images/Havana.png" class="d-block w-100" alt="...">
+                    <img src="./images/havana.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                    <img src="./images/Havana2.png" class="d-block w-100" alt="...">
+                    <img src="./images/havana2.png" class="d-block w-100" alt="...">
                     </div>
                     <div class="carousel-item">
-                    <img src="./images/Havana3.png" class="d-block w-100" alt="...">
+                    <img src="./images/havana3.png" class="d-block w-100" alt="...">
                     </div>
                 </div>
                 <button class="carousel-control-prev" type="button" data-bs-target="#carousel10" data-bs-slide="prev">
