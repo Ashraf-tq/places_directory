@@ -3,11 +3,10 @@
 <p>  This is repository of places directory project which gives a brief information about many places around the world.</p>
 <br>
 <h3>Website functionality:</h3>
-     
      <ul>
-        <li>It shows map with marked places, when you click on a place some helpful information and photos will be displayed.</li>
+     <li>It shows map with marked places, when you click on a place some helpful information and photos will be displayed.</li>
 
-        <li>Ability to add places with information and photos by website users: coming soon.</li>
+     <li>Ability to add places with information and photos by website users: coming soon.</li>
      </ul>
 <br>
 <h3>Tools used:</h3>
