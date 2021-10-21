@@ -13,7 +13,7 @@
     <li>Mapbox GL JS API</li>
     <li>Bootstrap CSS / JS</li>
     </ul>
-<br><br>
+<br>
 <h3>Links:<h3>
 
-<p>Places directory website: <a href="https://ashraf-tq.github.io/places_directory/">visit now</a></p>
+<p>Places directory website: </p><a href="https://ashraf-tq.github.io/places_directory/">visit now</a>
