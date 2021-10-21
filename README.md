@@ -5,7 +5,6 @@
 <h3>Website functionality:</h3>
      <ul>
      <li>It shows map with marked places, when you click on a place some helpful information and photos will be displayed.</li>
-
      <li>Ability to add places with information and photos by website users: coming soon.</li>
      </ul>
 <br>
