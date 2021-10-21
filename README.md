@@ -1,23 +1,19 @@
+<h2>Project-Unit-1: Places directory</h2>
+<p>Hello everyone,</p>
 
-**Hello everyone,**
-* This is repository of places directory project which gives a brief information about many places around the world.
+<p>  This is repository of places directory project which gives a brief information about many places around the world.</p>
 
-  
+<h3>Website functionality:</h3>
 
-## Website functionality:
-  
-  *	It shows map with marked places, when you click on a place some helpful information and photos will be displayed.
+<p>  It shows map with marked places, when you click on a place some helpful information and photos will be displayed.</p>
 
-  *	Ability to add places with information and photos by website users: coming soon.
+<p>  Ability to add places with information and photos by website users: coming soon.<p>
 
+<h3>Tools used:</h3>
+    <ul>
+    <li>Mapbox GL JS API</li>
+    <li>Bootstrap CSS / JS</li>
+    </ul>
+<h3>Links:<h3>
 
-
-## Tools used:
-  
-  *	Mapbox GL JS API
-  *	Bootstrap CSS / JS
-  
-  
-## Links:
-
-  Places directory website:  [visit now](https://ashraf-tq.github.io/places_directory/)
+<p>Places directory website: <a href="https://ashraf-tq.github.io/places_directory/">Visit now</a></p>
