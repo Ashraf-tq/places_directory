@@ -14,6 +14,6 @@
     <li>Bootstrap CSS / JS</li>
     </ul>
 <br>
-<h3>Links:<h3>
+<h3>Links:</h3>
 
-<p>Places directory website: </p><a href="https://ashraf-tq.github.io/places_directory/">visit now</a>
+<p>Places directory website: <a href="https://ashraf-tq.github.io/places_directory/">visit now</a></p>
